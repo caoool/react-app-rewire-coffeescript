@@ -50,7 +50,7 @@ const addBeforeRule = (rulesSource, ruleMatcher, value) => {
  * @param {any[]} config.module.rules
  * @param {string[]} config.entry
  */
-function rewireCoffeescript (config, env, coffeescriptLoaderOptions = {}) {
+function rewireCoffeescript(config, env, coffeescriptLoaderOptions = {}) {
   // Monkey patch react-scripts paths to use just `src` instead of
   // `src/index.js` specifically. Hopefully this can get removed at some point.
   // @see https://github.com/facebookincubator/create-react-app/issues/3052
@@ -62,9 +62,18 @@ function rewireCoffeescript (config, env, coffeescriptLoaderOptions = {}) {
   // Change the hardcoded `index.js` to just `index`, so that it will resolve as
   // whichever file is available. The use of `fs` is to handle things like
   // symlinks.
-  config.entry = config.entry
-    .slice(0, config.entry.length - 1)
-    .concat([path.resolve(fs.realpathSync(process.cwd()), 'src/index')])
+  // With vendor splitting, you might have named entries, usually the index should be 'main'
+
+  const makeUniversalIndexPath = () =>
+    path.resolve(fs.realpathSync(process.cwd()), 'src/index')
+
+  if (config.entry instanceof Array) {
+    config.entry = config.entry
+      .slice(0, config.entry.length - 1)
+      .concat([makeUniversalIndexPath()])
+  } else {
+    config.entry['main'] = makeUniversalIndexPath()
+  }
 
   // Add Coffeescript files to automatic file resolution for Webpack.
   config.resolve.extensions = (config.resolve.extensions || []).concat([
