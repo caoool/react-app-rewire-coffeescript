@@ -1,7 +1,7 @@
 {
-  "name": "react-app-rewire-typescript",
+  "name": "react-app-rewire-coffeescript",
   "version": "2.0.2",
-  "description": "Add ts-loader to a react-app-rewired config.",
+  "description": "Add coffee-loader to a react-app-rewired config.",
   "main": "index.js",
   "files": ["index.js"],
   "scripts": {
@@ -14,17 +14,19 @@
   "repository": {
     "type": "git",
     "url":
-      "git+https://github.com/lwd-technology/react-app-rewire-typescript.git"
+      "git+https://github.com/lwd-technology/react-app-rewire-coffeescript.git"
   },
-  "keywords": ["typescript", "ts-loader", "webpack", "react-app-rewired"],
-  "author": "Ian Copp <ian@wolflair.com>",
+  "keywords": ["coffeescript", "coffee-loader", "webpack", "react-app-rewired"],
+  "author": [
+    "Ian Copp <ian@wolflair.com>",
+    "Steve Fan <stevefan1999@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url":
-      "https://github.com/lwd-technology/react-app-rewire-typescript/issues"
+      "https://github.com/lwd-technology/react-app-rewire-coffeescript/issues"
   },
-  "homepage":
-    "https://github.com/lwd-technology/react-app-rewire-typescript#readme",
+  "homepage": "https://github.com/lwd-technology/react-app-rewire-coffeescript#readme",
   "devDependencies": {
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.6.0",
@@ -39,6 +41,7 @@
     "prettier": "^1.7.1"
   },
   "dependencies": {
-    "ts-loader": "^3.1.1"
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.0.2"
   }
 }
