@@ -50,7 +50,7 @@ const addBeforeRule = (rulesSource, ruleMatcher, value) => {
  * @param {any[]} config.module.rules
  * @param {string[]} config.entry
  */
-function rewireTypescript(config, env, typescriptLoaderOptions = {}) {
+function rewireCoffeescript (config, env, coffeescriptLoaderOptions = {}) {
   // Monkey patch react-scripts paths to use just `src` instead of
   // `src/index.js` specifically. Hopefully this can get removed at some point.
   // @see https://github.com/facebookincubator/create-react-app/issues/3052
@@ -66,27 +66,25 @@ function rewireTypescript(config, env, typescriptLoaderOptions = {}) {
     .slice(0, config.entry.length - 1)
     .concat([path.resolve(fs.realpathSync(process.cwd()), 'src/index')])
 
-  // Add Typescript files to automatic file resolution for Webpack.
+  // Add Coffeescript files to automatic file resolution for Webpack.
   config.resolve.extensions = (config.resolve.extensions || []).concat([
-    '.web.ts',
-    '.ts',
-    '.tsx'
+    '.coffee'
   ])
 
-  // Set up a Typescript rule.
+  // Set up a Coffeescript rule.
   const babelLoader = getBabelLoader(config.module.rules)
-  const typescriptRules = {
-    test: /\.tsx?$/,
+  const coffeescriptRules = {
+    test: /\.coffee$/,
     use: [
       { loader: babelLoader.loader, options: babelLoader.options },
-      { loader: 'ts-loader', options: typescriptLoaderOptions }
+      { loader: 'coffee-loader', options: coffeescriptLoaderOptions }
     ]
   }
 
-  // Add the Typescript rule before the file-loader rule.
-  addBeforeRule(config.module.rules, fileLoaderMatcher, typescriptRules)
+  // Add the Coffeescript rule before the file-loader rule.
+  addBeforeRule(config.module.rules, fileLoaderMatcher, coffeescriptRules)
 
   return config
 }
 
-module.exports = rewireTypescript
+module.exports = rewireCoffeescript
