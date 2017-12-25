@@ -1,6 +1,6 @@
 {
   "name": "react-app-rewire-coffeescript",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Add coffee-loader to a react-app-rewired config.",
   "main": "index.js",
   "files": ["index.js"],
@@ -26,7 +26,8 @@
     "url":
       "https://github.com/lwd-technology/react-app-rewire-coffeescript/issues"
   },
-  "homepage": "https://github.com/lwd-technology/react-app-rewire-coffeescript#readme",
+  "homepage":
+    "https://github.com/lwd-technology/react-app-rewire-coffeescript#readme",
   "devDependencies": {
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.6.0",
