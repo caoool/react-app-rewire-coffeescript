@@ -1,18 +1,17 @@
-# react-app-rewire-typescript
+# react-app-rewire-coffeescript
 
-Add [Typescript](https://github.com/microsoft/typescript) Webpack loading to a [`react-app-rewired`](https://github.com/timarney/react-app-rewired) config.
+Forked from [react-app-rewire-typescript
+](https://github.com/lwd-technology/react-app-rewire-typescript), this rewire preset will add [Coffeescript](http://coffeescript.org/) Webpack loader to a [`react-app-rewired`](https://github.com/timarney/react-app-rewired) config.
 
 ```js
 /* config-overrides.js */
 
-const rewireTypescript = require('react-app-rewire-typescript');
+const rewireCoffeescript = require('react-app-rewire-coffeescript');
 
 module.exports = function override(config, env) {
     // ...
-    config = rewireTypescript(config, env);
+    config = rewireCoffeescript(config, env);
     // ...
     return config;
 }
 ```
-
-For running `.ts` test files, take a look at [`ts-jest`](https://github.com/kulshekhar/ts-jest). PRs to integrate `ts-jest` compatibility into this repo are welcome.
