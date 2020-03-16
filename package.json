@@ -3,31 +3,42 @@
   "version": "2.0.3",
   "description": "Add coffee-loader to a react-app-rewired config.",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add"],
-    "*.json": ["prettier --parser json --write", "git add"]
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --parser json --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
-    "url":
-      "git+https://github.com/lwd-technology/react-app-rewire-coffeescript.git"
+    "url": "git+https://github.com/lwd-technology/react-app-rewire-coffeescript.git"
   },
-  "keywords": ["coffeescript", "coffee-loader", "webpack", "react-app-rewired"],
+  "keywords": [
+    "coffeescript",
+    "coffee-loader",
+    "webpack",
+    "react-app-rewired"
+  ],
   "author": [
     "Ian Copp <ian@wolflair.com>",
-    "Steve Fan <stevefan1999@gmail.com>"
+    "Steve Fan <stevefan1999@gmail.com>",
+    "Lu Cao <caooolu@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
-    "url":
-      "https://github.com/lwd-technology/react-app-rewire-coffeescript/issues"
+    "url": "https://github.com/lwd-technology/react-app-rewire-coffeescript/issues"
   },
-  "homepage":
-    "https://github.com/lwd-technology/react-app-rewire-coffeescript#readme",
+  "homepage": "https://github.com/lwd-technology/react-app-rewire-coffeescript#readme",
   "devDependencies": {
     "eslint": "^4.10.0",
     "eslint-config-prettier": "^2.6.0",
