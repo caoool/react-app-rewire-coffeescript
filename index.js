@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { getBabelLoader } = require('customize-cra')
 
 /**
  * @param {Object} rule
@@ -80,15 +81,12 @@ function rewireCoffeescript(config, env, coffeescriptLoaderOptions = {}) {
   ])
 
   // Set up a Coffeescript rule.
+  const babelLoader = getBabelLoader(config.module.rules)
   const coffeescriptRules = {
     test: /\.coffee$/,
     use: [
-      {
-        loader: 'coffee-loader',
-        options: {
-          presets: ['@babel/preset-env', 'react']
-        }
-      }
+      { loader: babelLoader.loader, options: babelLoader.options },
+      { loader: 'coffee-loader', options: coffeescriptLoaderOptions }
     ]
   }
 
