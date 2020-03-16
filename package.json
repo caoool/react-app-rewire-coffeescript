@@ -1,6 +1,6 @@
 {
   "name": "react-app-rewired-coffee",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Add coffee-loader to a react-app-rewired config.",
   "main": "index.js",
   "files": ["index.js"],
