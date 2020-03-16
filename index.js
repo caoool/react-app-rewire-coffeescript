@@ -81,7 +81,7 @@ function rewireCoffeescript(config, env, coffeescriptLoaderOptions = {}) {
   ])
 
   // Set up a Coffeescript rule.
-  const babelLoader = getBabelLoader(config.module.rules)
+  const babelLoader = getBabelLoader(config)
   coffeescriptLoaderOptions = { presets: ['@babel/env', 'react'] }
   const coffeescriptRules = {
     test: /\.coffee$/,
